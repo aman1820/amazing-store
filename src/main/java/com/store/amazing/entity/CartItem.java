@@ -6,6 +6,7 @@ import lombok.*;
 @Entity
 @Table(name = "cart_items")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
+@EqualsAndHashCode
 public class CartItem {
     @Id
     @GeneratedValue

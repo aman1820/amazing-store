@@ -84,4 +84,13 @@ public class CartService {
 
     }
 
+    public void removeItem(Long userId, Long cartItemId) {
+        CartItem cartItem = cartItemRepository.findById(cartItemId)
+                .orElseThrow(()-> new RuntimeException("Item doesnt exists"));
+        if (!cartItem.getCart().getUserId().equals(userId)) {
+            throw new RuntimeException("Cart item doesn't belongs to the User id");
+        }
+        cartItemRepository.deleteById(cartItemId);
+    }
+
 }
